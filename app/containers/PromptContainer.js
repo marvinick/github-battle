@@ -1,10 +1,11 @@
 var React = require('react');
+var transparentBg = require('../styles').transparentBg;
 
 var PromptContainer = React.createClass({
   render: function() {
     return (
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
-        <h1>Player 1</h1>
+      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
+        <h1>{this.props.route.header}</h1>
         <div className="col-md-12">
           <form>
             <div className="form-group">
