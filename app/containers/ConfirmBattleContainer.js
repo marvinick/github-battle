@@ -14,11 +14,15 @@ var ConfirmBattleContainer = React.createClass({
   },
   componentDidMount: function() {
     var query = this.props.location.query;
+    //https://egghead.io/playlists/the-this-key-word-250c37d9
     //fetch info from the github then update the state
     githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
       .then(function(players) {
-        console.log('PLAYERS', players)
-      })
+        this.setState({
+          isLoading: false,
+          playersInfo: [players[0], players[1]]
+        })
+      }.bind(this))
   },
   render: function() {
     return (
